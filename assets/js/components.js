@@ -21,7 +21,8 @@ Crafty.c("Vehicle", {
 		this._speed = 0,
 		this._direction = false,
 		this._status = "fall",
-		this._jump = false,
+//		this._jump = false,
+		this.playSound = true,
 		this._jump_counter = 0,
 		this._next_add = 0,
 		this._prev_add = 0,
@@ -100,12 +101,17 @@ Crafty.c("Vehicle", {
 							this.stop().animate("jump_right", 20, -1)
 						}
 					}
+					if (this.playSound) {
+						Crafty.audio.play("player_jump");
+						this.playSound = false;
+					}
 					this._jump_counter += 1;
 					if (this._jump_counter > 32) {
 						if (this.hit('Floor') || this.hit('PlatformTop') || this.hit('LibraTop')) {
 							this._jump_counter = 65;
 						}
 						if (this._jump_counter > 64) {
+							this.playSound = true
 							this._status = "fall";
 							this._jump_counter = 0;
 							this._radian = 0;
@@ -245,6 +251,7 @@ Crafty.c("Key", {
 			if (this.firstHit) {
 				this.firstHit = 0;
 				Crafty.trigger("releaseExit");
+				Crafty.audio.play("key_collected");
 				this.destroy();
 			}
 		}, function() {
@@ -272,6 +279,7 @@ Crafty.c("Exit", {
 			if (this._doorOpen) {
 				if (this.firstHit) {
 					this.firstHit = 0;
+					Crafty.audio.play("exit_level");
 					Crafty.trigger("CountBases", ent[0].obj.id);
 					ent[0].obj.destroy();
 				}
@@ -397,6 +405,13 @@ Crafty.c('Timer', {
 			if (this.timeNow > this.timeWas) {
 				if (this.timeLeft > 0) {
 					this.timeLeft -= 1;
+					if (this.timeLeft < 11) {
+						if (this.timeLeft > 0) {
+							Crafty.audio.play("time_running");
+						} else {
+							Crafty.audio.play("time_out");
+						}
+					}
 				} else {
 					Crafty.trigger("CountBases", 0);
 				}

@@ -1,42 +1,56 @@
 Crafty.audio.add({
-	"cheer": [
-		"assets/audio/ogg/game_over.ogg",
-		"assets/audio/mp3/game_over.mp3",
-		"assets/audio/wav/game_over.wav"
+	"player_jump": [
+		"assets/audio/ogg/jump.ogg",
+		"assets/audio/mp3/jump.mp3",
+		"assets/audio/wav/jump.wav"
 	]
 });
 Crafty.audio.add({
-	"hit": [
-		"assets/audio/ogg/tractor_hit.ogg",
-		"assets/audio/mp3/tractor_hit.mp3",
-		"assets/audio/wav/tractor_hit.wav"
+	"barrier_move": [
+		"assets/audio/ogg/barrier.ogg",
+		"assets/audio/mp3/barrier.mp3",
+		"assets/audio/wav/barrier.wav"
 	]
 });
 Crafty.audio.add({
-	"turn": [
-		"assets/audio/ogg/tractor_turn.ogg",
-		"assets/audio/mp3/tractor_turn.mp3",
-		"assets/audio/wav/tractor_turn.wav"
+	"platform_move": [
+		"assets/audio/ogg/platform.ogg",
+		"assets/audio/mp3/platform.mp3",
+		"assets/audio/wav/platform.wav"
 	]
 });
 Crafty.audio.add({
-	"weight-up": [
-		"assets/audio/ogg/weight_up.ogg",
-		"assets/audio/mp3/weight_up.mp3",
-		"assets/audio/wav/weight_up.wav"
+	"scales_move": [
+		"assets/audio/ogg/scales.ogg",
+		"assets/audio/mp3/scales.mp3",
+		"assets/audio/wav/scales.wav"
 	]
 });
 Crafty.audio.add({
-	"weight-down-base": [
-		"assets/audio/ogg/weight_down_base.ogg",
-		"assets/audio/mp3/weight_down_base.mp3",
-		"assets/audio/wav/weight_down_base.wav"
+	"key_collected": [
+		"assets/audio/ogg/key.ogg",
+		"assets/audio/mp3/key.mp3",
+		"assets/audio/wav/key.wav"
 	]
 });
 Crafty.audio.add({
-	"weight-down-homebase": [
-		"assets/audio/ogg/weight_down_homebase.ogg",
-		"assets/audio/mp3/weight_down_homebase.mp3",
-		"assets/audio/wav/weight_down_homebase.wav"
+	"exit_level": [
+		"assets/audio/ogg/exit.ogg",
+		"assets/audio/mp3/exit.mp3",
+		"assets/audio/wav/exit.wav"
+	]
+});
+Crafty.audio.add({
+	"time_running": [
+		"assets/audio/ogg/time.ogg",
+		"assets/audio/mp3/time.mp3",
+		"assets/audio/wav/time.wav"
+	]
+});
+Crafty.audio.add({
+	"time_out": [
+		"assets/audio/ogg/timeout.ogg",
+		"assets/audio/mp3/timeout.mp3",
+		"assets/audio/wav/timeout.wav"
 	]
 });

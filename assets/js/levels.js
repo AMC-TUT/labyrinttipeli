@@ -238,40 +238,40 @@ var Levels = {
 			key: {_x: 42, _y: 112},
 			time: 450,
 			floors: [
-				{ _x: 5, _y: 250, _width: 315, _height: 10 },
+				{ _x: 5, _y: 250, _width: 283, _height: 10 },
 				{ _x: 790, _y: 250, _width: 165, _height: 10 },
 				{ _x: 544, _y: 324, _width: 214, _height: 10 },
-				{ _x: 138, _y: 398, _width: 182, _height: 10 },
+				{ _x: 138, _y: 398, _width: 150, _height: 10 },
 				{ _x: 657, _y: 398, _width: 165, _height: 10 },
 				{ _x: 5, _y: 472, _width: 101, _height: 10 },
 				{ _x: 544, _y: 472, _width: 101, _height: 10 },
 				{ _x: 855, _y: 472, _width: 101, _height: 10 },
-				{ _x: 5, _y: 546, _width: 298, _height: 10 },
+				{ _x: 5, _y: 546, _width: 266, _height: 10 },
 				{ _x: 726, _y: 546, _width: 229, _height: 10 },
 				{ _x: 630, _y: 620, _width: 106, _height: 10 },
 				{ _x: 0, _y: 694, _width: 960, _height: 10 }
 			],
 			walls: [
 				{ _x: 640, _y: 107, _width: 22, _height: 370 },
-				{ _x: 298, _y: 403, _width: 22, _height: 148 },
+				{ _x: 266, _y: 403, _width: 22, _height: 148 },
 				{ _x: 726, _y: 551, _width: 22, _height: 148 }
 			],
 			doors: [],
 			platforms: [
 				{
 					id: 1,
-					trigger: { _x: 138, _y: 526},
-					barrier: { _x: 320, _y: 250, _l: 320, _r: 448}
+					trigger: { _x: 106, _y: 526},
+					barrier: { _x: 288, _y: 250, _l: 288, _r: 416}
 				},
 				{
 					id: 2,
 					trigger: { _x: 138, _y: 674},
-					barrier: { _x: 320, _y: 398, _l: 320, _r: 448}
+					barrier: { _x: 288, _y: 398, _l: 288, _r: 416}
 				},
 				{
 					id: 3,
 					trigger: { _x: 416, _y: 674},
-					barrier: { _x: 320, _y: 546, _l: 320, _r: 448}
+					barrier: { _x: 288, _y: 546, _l: 288, _r: 416}
 				}
 			],
 			libras: []
@@ -302,18 +302,34 @@ var Levels = {
 			ent._door = Crafty.e('Door').attr({ x: door.barrier._x, y: door.barrier._y, z: 2, w: 10, h: 96 });
 			ent._door.addComponent('Collision');
 			//ent._door.addComponent('Collision').addComponent('Color').color('green');
+			ent.playSound = true;
+			ent.barrierMoving = false;
 			ent.bind('EnterFrame', function(frame) {
 				if (frame.frame % 4 === 0) {
 					if (this.hit("Vehicle")) {
 						if (this._door._y > (door.barrier._y - 92)) {
+							this.barrierMoving = true;
 							var move = this._door._y - 4;
 							this._door.tween({ y: move }, 4);
+						} else {
+							this.barrierMoving = false;
 						}
 					} else {
 						if (this._door._y < door.barrier._y) {
+							this.barrierMoving = true;
 							var move = this._door._y + 4;
 							this._door.tween({ y: move }, 4);
+						} else {
+							this.barrierMoving = false;
 						}
+					}
+					if (this.barrierMoving) {
+						if (this.playSound) {
+							this.playSound = false;
+							Crafty.audio.play("barrier_move");
+						}
+					} else {
+						this.playSound = true;
 					}
 				}
 			});
@@ -337,6 +353,7 @@ var Levels = {
 			ent.addComponent('Collision');
 			//ent.addComponent('Collision').addComponent('Color').color('green');
 			ent.firstHit = true;
+			ent.playSound = true;
 			ent._platformtop = Crafty.e('PlatformTop').attr({ x: platform.barrier._x, y: platform.barrier._y, z: 2, w: 96, h: 20 });
 			ent._platformtop.addComponent('Collision').collision(new Crafty.polygon([0,0], [96,0], [96,2], [0,2]));
 			//ent._platformtop.addComponent('Collision').collision(new Crafty.polygon([0,0], [96,0], [96,2], [0,2])).addComponent('Color').color('lime');
@@ -381,6 +398,14 @@ var Levels = {
 					} else {
 						this._platformtop._moving = false;
 					}
+					if (this._platformtop._moving) {
+						if (this.playSound) {
+							this.playSound = false;
+							Crafty.audio.play("platform_move");
+						}
+					} else {
+						this.playSound = true;
+					}
 				}
 			});
 			var floor = Crafty.e('Floor').attr({ x: platform.trigger._x, y: platform.trigger._y + 2, z: 2, w: 96, h: 2 });
@@ -415,21 +440,26 @@ var Levels = {
 			ent.lefttop.onHit("Vehicle", function (ent) {
 				var player = ent[0].obj;
 				if (this.moving) {
-					var move = this.direction ? player._y-1 : player._y+1;
-					player.tween({ y: move }, 1);
+					if (ent[0].obj._status == "walk") {
+						var move = this.direction ? player._y-1 : player._y+1;
+						player.tween({ y: move }, 1);
+					}
 				}
 			});
 			ent.righttop.onHit("Vehicle", function (ent) {
 				var player = ent[0].obj;
 				if (this.moving) {
-					var move = this.direction ? player._y-1 : player._y+1;
-					player.tween({ y: move }, 1);
+					if (ent[0].obj._status == "walk") {
+						var move = this.direction ? player._y-1 : player._y+1;
+						player.tween({ y: move }, 1);
+					}
 				}
 			});
 			ent.leftBalance = libra.left._y;
 			ent.rightBalance = libra.right._y;
 			ent.leftScale = libra.left._height;
 			ent.rightScale = libra.right._height;
+			ent.playSound = true;
 			ent.bind('EnterFrame', function(frame) {
 				if (frame.frame % 4 === 0) {
 					this.leftWeight = 1;
@@ -501,6 +531,14 @@ var Levels = {
 						this.righttop.moving = true;
 					} else {
 						this.righttop.moving = false;
+					}
+					if (this.lefttop.moving) {
+						if (this.playSound) {
+							this.playSound = false;
+							Crafty.audio.play("scales_move");
+						}
+					} else {
+						this.playSound = true;
 					}
 				}
 			});

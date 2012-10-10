@@ -16,15 +16,12 @@ Crafty.scene("Loading", function() {
 	Crafty.load(
 		[
 			"assets/img/level0_bg.png",
-			"assets/img/lobby_bg.png"
-			/*
-			"assets/img/menu_bg.png",
-			"assets/img/player1.png",
-			"assets/img/player2.png",
-			"assets/img/player3.png",
-			"assets/img/player4.png",
-			"assets/img/player5.png"
-			*/
+			"assets/img/level1_bg.png",
+			"assets/img/level2_bg.png",
+			"assets/img/level3_bg.png",
+			"assets/img/level4_bg.png",
+			"assets/img/lobby_bg.png",
+			"assets/img/menu_bg.png"
 		],
 		function() {
 			setTimeout(function() {
