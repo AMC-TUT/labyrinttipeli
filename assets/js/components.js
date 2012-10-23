@@ -18,6 +18,7 @@ Crafty.c("Vehicle", {
 		this._keyRun = "DOWN_ARROW",
 		this._accJump = 0,
 		this._accRun = 0,
+		this._accArray = [10, 10, 10, 10, 10],
 		this._speed = 0,
 		this._direction = false,
 		this._status = "fall",
@@ -81,11 +82,19 @@ Crafty.c("Vehicle", {
 					if (this.hit('Floor') || this.hit('PlatformTop') || this.hit('LibraTop')) {
 						this._status = "walk";
 					} else {
-						this.y += 3;
+						if (this.weight < 80) {
+							this.y += 3;
+						} else {
+							this.y += 4;
+						}
 					}
 					break;
 				case "jump":
-					this._speed = 3;
+					if (this.weight < 80) {
+						this._speed = 3;
+					} else {
+						this._speed = 2;
+					}
 					this._radian += Math.PI / 64;
 					this._next_add = 96 * Math.sin(this._radian) - this._prev_add;
 					this._prev_add += this._next_add;

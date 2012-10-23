@@ -339,11 +339,11 @@ var Levels = {
 			var ceiling = Crafty.e('Ceiling').attr({ x: door.trigger._x, y: door.trigger._y + 4, z: 2, w: 64, h: 6 });
 			ceiling.addComponent('Collision');
 			//ceiling.addComponent('Collision').addComponent('Color').color('blue');
-			var leftBlock = Crafty.e('Wall').attr({ x: door.trigger._x, y: door.trigger._y + 4, z: 2, w: 5, h: 6 });
-			leftBlock.addComponent('Collision');
+			//var leftBlock = Crafty.e('Wall').attr({ x: door.trigger._x, y: door.trigger._y + 4, z: 2, w: 5, h: 6 });
+			//leftBlock.addComponent('Collision');
 			//leftBlock.addComponent('Collision').addComponent('Color').color('red');
-			var rightBlock = Crafty.e('Wall').attr({ x: door.trigger._x + 59, y: door.trigger._y + 4, z: 2, w: 5, h: 6 });
-			rightBlock.addComponent('Collision');
+			//var rightBlock = Crafty.e('Wall').attr({ x: door.trigger._x + 59, y: door.trigger._y + 4, z: 2, w: 5, h: 6 });
+			//rightBlock.addComponent('Collision');
 			//rightBlock.addComponent('Collision').addComponent('Color').color('red');
 		});
 	},
