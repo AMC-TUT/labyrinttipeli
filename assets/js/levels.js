@@ -25,17 +25,17 @@ var Levels = {
 			key: {_x: 822, _y: 112},
 			time: 450,
 			floors: [
-				{ _x: 138, _y: 250, _width: 278, _height: 10 },
+				{ _x: 138, _y: 250, _width: 310, _height: 10 },
 				{ _x: 544, _y: 250, _width: 411, _height: 10 },
-				{ _x: 5, _y: 324, _width: 101, _height: 10 },
+				{ _x: 5, _y: 324, _width: 133, _height: 10 },
 				{ _x: 5, _y: 398, _width: 165, _height: 10 },
 				{ _x: 310, _y: 398, _width: 512, _height: 10 },
-				{ _x: 202, _y: 472, _width: 106, _height: 10 },
-				{ _x: 854, _y: 472, _width: 101, _height: 10 },
+				{ _x: 170, _y: 472, _width: 138, _height: 10 },
+				{ _x: 822, _y: 472, _width: 133, _height: 10 },
 				{ _x: 138, _y: 546, _width: 460, _height: 10 },
 				{ _x: 726, _y: 546, _width: 229, _height: 10 },
-				{ _x: 5, _y: 620, _width: 101, _height: 10 },
-				{ _x: 630, _y: 620, _width: 106, _height: 10 },
+				{ _x: 5, _y: 620, _width: 133, _height: 10 },
+				{ _x: 598, _y: 620, _width: 138, _height: 10 },
 				{ _x: 0, _y: 694, _width: 960, _height: 10 }
 			],
 			walls: [
@@ -80,7 +80,7 @@ var Levels = {
 				{ _x: 5, _y: 250, _width: 133, _height: 10 },
 				{ _x: 266, _y: 250, _width: 556, _height: 10 },
 				{ _x: 138, _y: 324, _width: 128, _height: 10 },
-				{ _x: 854, _y: 324, _width: 101, _height: 10 },
+				{ _x: 822, _y: 324, _width: 133, _height: 10 },
 				{ _x: 5, _y: 398, _width: 133, _height: 10 },
 				{ _x: 266, _y: 398, _width: 689, _height: 10 },
 				{ _x: 138, _y: 472, _width: 128, _height: 10 },
@@ -134,15 +134,15 @@ var Levels = {
 			floors: [
 				{ _x: 138, _y: 250, _width: 182, _height: 10 },
 				{ _x: 640, _y: 250, _width: 315, _height: 10 },
-				{ _x: 5, _y: 324, _width: 101, _height: 10 },
+				{ _x: 5, _y: 324, _width: 133, _height: 10 },
 				{ _x: 5, _y: 398, _width: 165, _height: 10 },
 				{ _x: 448, _y: 398, _width: 374, _height: 10 },
-				{ _x: 202, _y: 472, _width: 106, _height: 10 },
-				{ _x: 855, _y: 472, _width: 101, _height: 10 },
+				{ _x: 170, _y: 472, _width: 138, _height: 10 },
+				{ _x: 822, _y: 472, _width: 133, _height: 10 },
 				{ _x: 138, _y: 546, _width: 460, _height: 10 },
 				{ _x: 726, _y: 546, _width: 229, _height: 10 },
-				{ _x: 5, _y: 620, _width: 101, _height: 10 },
-				{ _x: 630, _y: 620, _width: 106, _height: 10 },
+				{ _x: 5, _y: 620, _width: 133, _height: 10 },
+				{ _x: 598, _y: 620, _width: 138, _height: 10 },
 				{ _x: 0, _y: 694, _width: 960, _height: 10 }
 			],
 			walls: [
@@ -186,9 +186,9 @@ var Levels = {
 			time: 450,
 			floors: [
 				{ _x: 5, _y: 250, _width: 336, _height: 10 },
-				{ _x: 469, _y: 250, _width: 75, _height: 10 },
+				{ _x: 469, _y: 250, _width: 107, _height: 10 },
 				{ _x: 672, _y: 250, _width: 182, _height: 10 },
-				{ _x: 373, _y: 324, _width: 101, _height: 10 },
+				{ _x: 341, _y: 324, _width: 133, _height: 10 },
 				{ _x: 106, _y: 398, _width: 492, _height: 10 },
 				{ _x: 726, _y: 398, _width: 128, _height: 10 },
 				{ _x: 598, _y: 472, _width: 128, _height: 10 },
@@ -196,7 +196,7 @@ var Levels = {
 				{ _x: 363, _y: 546, _width: 235, _height: 10 },
 				{ _x: 726, _y: 546, _width: 229, _height: 10 },
 				{ _x: 235, _y: 620, _width: 128, _height: 10 },
-				{ _x: 630, _y: 620, _width: 106, _height: 10 },
+				{ _x: 598, _y: 620, _width: 138, _height: 10 },
 				{ _x: 0, _y: 694, _width: 960, _height: 10 }
 			],
 			walls: [
@@ -240,15 +240,15 @@ var Levels = {
 			floors: [
 				{ _x: 5, _y: 250, _width: 283, _height: 10 },
 				{ _x: 790, _y: 250, _width: 165, _height: 10 },
-				{ _x: 544, _y: 324, _width: 214, _height: 10 },
+				{ _x: 544, _y: 324, _width: 246, _height: 10 },
 				{ _x: 138, _y: 398, _width: 150, _height: 10 },
 				{ _x: 657, _y: 398, _width: 165, _height: 10 },
 				{ _x: 5, _y: 472, _width: 101, _height: 10 },
 				{ _x: 544, _y: 472, _width: 101, _height: 10 },
-				{ _x: 855, _y: 472, _width: 101, _height: 10 },
+				{ _x: 822, _y: 472, _width: 133, _height: 10 },
 				{ _x: 5, _y: 546, _width: 266, _height: 10 },
 				{ _x: 726, _y: 546, _width: 229, _height: 10 },
-				{ _x: 630, _y: 620, _width: 106, _height: 10 },
+				{ _x: 598, _y: 620, _width: 138, _height: 10 },
 				{ _x: 0, _y: 694, _width: 960, _height: 10 }
 			],
 			walls: [
