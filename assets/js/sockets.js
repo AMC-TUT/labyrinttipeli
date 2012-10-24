@@ -125,11 +125,11 @@
 			if (haritus < 5) {
 			//if (attrs[1] < 21) {
 				if (typeof GameController[clientID].ent._accRun !== "undefined") {
-					GameController[clientID].ent._accRun = 5;
+					GameController[clientID].ent._accRun = 10;
 				}
 			} else if (attrs[0] == "jump") {
 				if (typeof GameController[clientID].ent._accJump !== "undefined") {
-					GameController[clientID].ent._accJump = 5;
+					GameController[clientID].ent._accJump = 10;
 				}
 			}
 		}
