@@ -115,14 +115,14 @@
 		var attrs = message.split(";");
 		// attrs[1] = accelerometer value
 		if (typeof GameController[clientID] !== "undefined" && typeof GameController[clientID].ent !== "undefined") {
-			if (attrs[1] < 18) {
+			if (attrs[1] < 17) {
 			//if (attrs[1] < 21) {
 				if (typeof GameController[clientID].ent._accRun !== "undefined") {
-					GameController[clientID].ent._accRun = 10;
+					GameController[clientID].ent._accRun = 8;
 				}
 			} else if (attrs[1] > 20) {
 				if (typeof GameController[clientID].ent._accJump !== "undefined") {
-					GameController[clientID].ent._accJump = 10;
+					GameController[clientID].ent._accJump = 3;
 				}
 			}
 		}

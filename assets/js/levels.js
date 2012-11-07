@@ -23,7 +23,7 @@ var Levels = {
 			],
 			lock: {_x: 384, _y: 302},
 			key: {_x: 822, _y: 112},
-			time: 450,
+			time: 150,
 			floors: [
 				{ _x: 138, _y: 250, _width: 310, _height: 10 },
 				{ _x: 544, _y: 250, _width: 411, _height: 10 },
@@ -75,7 +75,7 @@ var Levels = {
 			],
 			lock: {_x: 352, _y: 154},
 			key: {_x: 822, _y: 408},
-			time: 450,
+			time: 150,
 			floors: [
 				{ _x: 5, _y: 250, _width: 133, _height: 10 },
 				{ _x: 266, _y: 250, _width: 556, _height: 10 },
@@ -130,7 +130,7 @@ var Levels = {
 			],
 			lock: {_x: 694, _y: 302},
 			key: {_x: 822, _y: 112},
-			time: 450,
+			time: 200,
 			floors: [
 				{ _x: 138, _y: 250, _width: 182, _height: 10 },
 				{ _x: 640, _y: 250, _width: 315, _height: 10 },
@@ -183,7 +183,7 @@ var Levels = {
 			],
 			lock: {_x: 448, _y: 598},
 			key: {_x: 74, _y: 112},
-			time: 450,
+			time: 200,
 			floors: [
 				{ _x: 5, _y: 250, _width: 336, _height: 10 },
 				{ _x: 469, _y: 250, _width: 107, _height: 10 },
