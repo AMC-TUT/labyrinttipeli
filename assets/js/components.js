@@ -18,7 +18,6 @@ Crafty.c("Vehicle", {
 		this._keyRun = "DOWN_ARROW",
 		this._accJump = 0,
 		this._accRun = 0,
-		this._accArray = [10, 10, 10, 10, 10],
 		this._speed = 0,
 		this._direction = false,
 		this._status = "fall",
