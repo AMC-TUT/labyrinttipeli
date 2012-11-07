@@ -119,6 +119,7 @@ Crafty.c("Vehicle", {
 							this._jump_counter = 65;
 						}
 						if (this._jump_counter > 64) {
+							this._accRun = 0;
 							this.playSound = true
 							this._status = "fall";
 							this._jump_counter = 0;
