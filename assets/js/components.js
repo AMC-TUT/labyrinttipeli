@@ -18,6 +18,9 @@ Crafty.c("Vehicle", {
 		this._keyRun = "DOWN_ARROW",
 		this._accJump = 0,
 		this._accRun = 0,
+		this._ka = [10, 10, 10, 10, 10],
+		this._shaker = 0,
+		this._idle_counter = 0,
 		this._speed = 0,
 		this._direction = false,
 		this._status = "fall",
@@ -39,6 +42,13 @@ Crafty.c("Vehicle", {
 		.bind("EnterFrame", function(frame) {
 			this._speed = this._accRun;
 			this._speed = this._speed < 3 ? this._speed : 3; // max speed = 3
+			this._idle_counter += 1;
+			if (this._idle_counter > 16) {
+				this._ka.shift();
+				this._ka.push(this._shaker);
+				this._shaker = 0;
+				this._idle_counter = 0;
+			}
 			switch (this._status) {
 				case "power":
 					if (this.isDown(this._keyRun) || (this._speed > 0)) {
