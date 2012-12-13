@@ -126,7 +126,9 @@
 			if (ka < 8) {
 				if (value > 18) {
 					if (typeof GameController[clientID].ent._accJump !== "undefined") {
-						GameController[clientID].ent._accJump = 3;
+						if (GameController[clientID].ent._status != "jump") {
+							GameController[clientID].ent._accJump = 3;
+						}
 					}
 				} else {
 					if (typeof GameController[clientID].ent._accRun !== "undefined") {
@@ -136,7 +138,9 @@
 			} else {
 				if (value > 25) {
 					if (typeof GameController[clientID].ent._accJump !== "undefined") {
-						GameController[clientID].ent._accJump = 3;
+						if (GameController[clientID].ent._status != "jump") {
+							GameController[clientID].ent._accJump = 3;
+						}
 					}
 				} else {
 					if (typeof GameController[clientID].ent._accRun !== "undefined") {
