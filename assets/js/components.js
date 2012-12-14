@@ -140,7 +140,10 @@ Crafty.c("Vehicle", {
 					}
 					break;
 				case "walk":
-					if (this.isDown(this._keyRun) || (this._speed > 0)) {
+					if (this.isDown(this._keyJump) || (this._accJump > 0)) {
+						this._status = "jump";
+						this._accJump = 0;
+					} else if (this.isDown(this._keyRun) || (this._speed > 0)) {
 						if (this._speed == 0) {
 							this._speed = 1.5;
 						}
@@ -155,9 +158,6 @@ Crafty.c("Vehicle", {
 							}
 							this.x += this._speed;
 						}
-					} else if (this.isDown(this._keyJump) || (this._accJump > 0)) {
-						this._status = "jump";
-						this._accJump = 0;
 					} else {
 						if (this._direction) {
 							if (!this.isPlaying("idle_left")) {
