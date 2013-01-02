@@ -15,7 +15,7 @@
 <?php
 	if (isset($_REQUEST["box"])) {
 		switch ($_REQUEST["box"]) {
-			case 1: echo "var boxi = 'http://sportti.dreamschool.fi/';";
+			case 1: echo "var boxi = 'http://sportti.dreamschool.fi/hikiboksi/';";
 				break;
 			default: echo "var boxi = 'http://sportti.dreamschool.fi/';";
 				break;
