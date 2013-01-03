@@ -113,55 +113,17 @@
 	// Triggered when a game message is received
 	function moveMessageListener(clientID, message) {
 		var attrs = message.split(";");
-		var value = parseInt(attrs[1]);
-		if (typeof GameController[clientID] !== "undefined" && typeof GameController[clientID].ent !== "undefined") {
-			if (typeof GameController[clientID].ent._shaker !== "undefined") {
-				GameController[clientID].ent._shaker = value;
-			}
-			var ka = 0;
-			for (var i = 0; i < GameController[clientID].ent._ka.length; i++) {
-				ka = ka + GameController[clientID].ent._ka[i];
-			}
-			ka = ka/GameController[clientID].ent._ay.length;
-			if (ka < 8) {
-				if (value > 18) {
-					if (typeof GameController[clientID].ent._accJump !== "undefined") {
-						if (GameController[clientID].ent._status != "jump") {
-							GameController[clientID].ent._accJump = 3;
-						}
-					}
-				} else {
-					if (typeof GameController[clientID].ent._accRun !== "undefined") {
-						GameController[clientID].ent._accRun = 10;
-					}
-				}
-			} else {
-				if (value > 25) {
-					if (typeof GameController[clientID].ent._accJump !== "undefined") {
-						if (GameController[clientID].ent._status != "jump") {
-							GameController[clientID].ent._accJump = 3;
-						}
-					}
-				} else {
-					if (typeof GameController[clientID].ent._accRun !== "undefined") {
-						GameController[clientID].ent._accRun = 10;
-					}
-				}
-			}
-/*
-		var attrs = message.split(";");
 		// attrs[1] = accelerometer value
 		if (typeof GameController[clientID] !== "undefined" && typeof GameController[clientID].ent !== "undefined") {
 			if (attrs[1] < 16) {
 				if (typeof GameController[clientID].ent._accRun !== "undefined") {
-					GameController[clientID].ent._accRun = 8;
+					GameController[clientID].ent._accRun = 10;
 				}
 			} else if (attrs[1] > 19) {
 				if (typeof GameController[clientID].ent._accJump !== "undefined") {
 					GameController[clientID].ent._accJump = 3;
 				}
 			}
-*/
 		}
 	}
 
