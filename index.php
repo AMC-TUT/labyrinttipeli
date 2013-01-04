@@ -20,6 +20,8 @@
 			default: echo "var boxi = 'http://sportti.dreamschool.fi/';";
 				break;
 		}
+	} else {
+		echo "var boxi = 'http://sportti.dreamschool.fi/';";		
 	}
 ?>
 		</script>
