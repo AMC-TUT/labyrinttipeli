@@ -161,9 +161,10 @@
 		if (attrScope == roomID) {
 			var addOk = false;
 			if (attrName == "USERINFO") {
+				var userId = attrVal.split(";")[0];
 				var playerName = attrVal.split(";")[2];
 				var teamId = attrVal.split(";")[3];
-				addOk = addPlayerToTeam(teamId, clientID, playerName);
+				addOk = addPlayerToTeam(teamId, clientID, userId, playerName);
 			}
 			if (addOk) {
 				GameController[clientID] = {};
@@ -185,14 +186,14 @@
 		}
 	}
 
-	function addPlayerToTeam(teamId, playerId, playerName) {
+	function addPlayerToTeam(teamId, playerId, userId, playerName) {
 		var players = Game.playersInTeam(teamId);
 		var vacant = true;
 		$(".QRCode-"+teamId).show();
 		switch (players) {
 			case 0: vacant = Game.createTeam(teamId);
 				if (vacant) {
-					vacant = Game.createVehicle(teamId, playerId, playerName);
+					vacant = Game.createVehicle(teamId, playerId, userId, playerName);
 					if (vacant) {
 						Game.drawVehicle(players, teamId, playerName);
 					}
@@ -200,12 +201,12 @@
 				break;
 			case 1:
 			case 2:
-			case 3: vacant = Game.createVehicle(teamId, playerId, playerName);
+			case 3: vacant = Game.createVehicle(teamId, playerId, userId, playerName);
 				if (vacant) {
 					Game.drawVehicle(players, teamId, playerName);
 				}
 				break;
-			case 4: vacant = Game.createVehicle(teamId, playerId, playerName);
+			case 4: vacant = Game.createVehicle(teamId, playerId, userId, playerName);
 				if (vacant) {
 					Game.drawVehicle(players, teamId, playerName);
 					$(".QRCode-"+teamId).hide();

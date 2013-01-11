@@ -78,6 +78,7 @@ var Game = {
 	level: 0,
 	hiScore: [],
 	levelScore: [],
+	startTime: 0,
 	playersInTeam: function(teamId) {
 		var counter = 0;
 		for (var i = 0; i < Game.teams.length; i++) {
@@ -96,12 +97,13 @@ var Game = {
 		Game.teams.push(team);
 		return true;
 	},
-	createVehicle: function(teamId, playerId, playerName) {
+	createVehicle: function(teamId, playerId, userId, playerName) {
 		var success = false;
 		for (var i = 0; i < Game.teams.length; i++) {
 			if (Game.teams[i].id == teamId) {
 				var vehicle = {
 					id: parseInt(playerId),
+					user_id: parseInt(userId),
 					name: playerName
 				}
 				Game.teams[i].vehicles.push(vehicle);
@@ -118,13 +120,19 @@ var Game = {
 	generateHiScore: function() {
 		if (!(Game.hiScore.length > 0)) {
 			_.each(Game.teams, function(team) {
+				var xp = 0;
+				if (team.vehicles.length < 6) {
+					xp = 6 - team.vehicles.length;
+				}
 				_.each(team.vehicles, function(vehicle) {
 					var player = {
 						id: vehicle.id,
+						user_id: vehicle.user_id,
 						name: vehicle.name,
 						score: 0,
 						teamBonus: 0,
-						totalScore: 0
+						totalScore: 0,
+						xp: xp
 					}
 					Game.hiScore.push(player);
 				})
@@ -142,6 +150,10 @@ var Game = {
 		Levels.generateExit(level);
 		Levels.generateLogic(level);
 		Levels.generatePlayers(level);
+		if (level == 0) {
+			var kello = new Date();
+			Game.startTime = Math.floor(kello.getTime()/1000);
+		}
 	}
 
 };
