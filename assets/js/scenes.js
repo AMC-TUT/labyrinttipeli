@@ -10,7 +10,6 @@ Crafty.scene("Loading", function() {
 		+ ' <div class="bar">'
 		+ ' </div>'
 		+ ' </div>'
-		// + ' <div class="file">...</div>'
 		+ ' </div>'
 		+ ' </div>');
 	Crafty.load(
@@ -47,7 +46,6 @@ Crafty.scene("Lobby", function() {
 	//Levels.drawAllFarms(0);
 	Game.sockets.dashboard = true;
 	this.bind('SocketsReadyEvent', _.once(function() { // _.once = singleton pattern impl.
-		//log('SocketsReadyEvent');
 		_.each(Game.qrcodes.images, function(qrcode) {
 			var ent = Crafty.e("2D, DOM, Image, QRCode")
 				.attr({ x: qrcode._x, y: qrcode._y, z: 4 });

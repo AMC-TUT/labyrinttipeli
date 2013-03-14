@@ -61,15 +61,15 @@ var Game = {
 			vehicles : [
 				{
 					id: 1,
-					name : "Matti",
+					name : "Matti"
 				},
 				{
 					id: 2,
-					name : "Marti",
+					name : "Marti"
 				},
 				{
 					id: 3,
-					name : "Reijo",
+					name : "Reijo"
 				}
 			]
 		}
@@ -86,13 +86,13 @@ var Game = {
 				counter = Game.teams[i].vehicles.length;
 			}
 		}
-		return counter
+		return counter;
 	},
 	createTeam: function(teamId) {
 		var team =
 			{
 				id: teamId,
-				vehicles: [],
+				vehicles: []
 			};
 		Game.teams.push(team);
 		return true;
@@ -102,10 +102,10 @@ var Game = {
 		for (var i = 0; i < Game.teams.length; i++) {
 			if (Game.teams[i].id == teamId) {
 				var vehicle = {
-					id: parseInt(playerId),
-					user_id: parseInt(userId),
+					id: parseInt(playerId, 10),
+					user_id: parseInt(userId, 10),
 					name: playerName
-				}
+				};
 				Game.teams[i].vehicles.push(vehicle);
 				success = true;
 			}
@@ -133,13 +133,12 @@ var Game = {
 						teamBonus: 0,
 						totalScore: 0,
 						xp: xp
-					}
+					};
 					Game.hiScore.push(player);
-				})
-			})
+				});
+			});
 		}
-	},
-	generateGame: function(level) {
+	}, generateGame: function(level) {
 		Crafty.background("url(assets/img/level"+level+"_bg.png)");
 		Game.generateHiScore();
 		Levels.generateFloors(level);
@@ -150,10 +149,9 @@ var Game = {
 		Levels.generateExit(level);
 		Levels.generateLogic(level);
 		Levels.generatePlayers(level);
-		if (level == 0) {
+		if (level === 0) {
 			var kello = new Date();
 			Game.startTime = Math.floor(kello.getTime()/1000);
 		}
 	}
-
 };
